@@ -42,6 +42,7 @@ subroutine grid
 
     !********************************************************************
     ! Define geometry (x1,x2,h,b(:), c(:)
+    ! Compute node coordinates x(n,m), y(n,m)  with 0<= n <= nc, 0<= m <= mc -> matrici
 
     x1=-1;
     x2=2;
@@ -68,15 +69,6 @@ subroutine grid
             
         end do
     end do
-    
-    !********************************************************************
-    ! Compute node coordinates x(n,m), y(n,m)  with 0<= n <= nc, 0<= m <= mc -> matrici
-
-
-
-
-
-
 
     !********************************************************************
     ! Compute edge length and normal on right edge nx_right(n,m), ny_right(n,m), length_right(n,m)  with 0<= n <= nc, 1<= m <= mc
