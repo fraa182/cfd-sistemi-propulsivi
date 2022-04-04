@@ -3,7 +3,6 @@ subroutine grid
     implicit none
     integer::n,m
 
-
 !     Element numbering (1<=n<=nc, 1<=m<=mc)
 !            * ----- *
 !            |       |
@@ -43,8 +42,31 @@ subroutine grid
     !********************************************************************
     ! Define geometry (x1,x2,h,b(:), c(:)
 
-	
-
+    x1=-1;
+    x2=2;
+    h=1;
+    
+    ytop(:)=h;
+    
+    do n=0,nc
+    
+        do m=0,mc
+        
+            x(n,m)=x1+(x2-x1)*(1.*n/nc)
+            if (x(n,m)<0 .or. x(n,m)>1) then
+            
+                ybottom(n)=0;
+                
+            else
+            
+                ybottom(n)=sin(pi*x(n,m));
+                
+            end if
+            y(n,m)=ybottom(n)+(ytop(n)-ybottom(n))*(1.*m/mc)
+            
+        end do
+    end do
+    
     !********************************************************************
     ! Compute node coordinates x(n,m), y(n,m)  with 0<= n <= nc, 0<= m <= mc -> matrici
 

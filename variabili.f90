@@ -9,7 +9,7 @@ module variabili
     integer::kend,kinf,kout
 
     real::time,dt
-
+    real,parameter::pi=DACOS(-1.D0)
 
     ! Geometry
     real::x1,x2,x3,x4,h
