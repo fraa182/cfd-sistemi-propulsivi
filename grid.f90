@@ -2,6 +2,7 @@ subroutine grid
     use variabili
     implicit none
     integer::n,m
+    real::b1
 
 !     Element numbering (1<=n<=nc, 1<=m<=mc)
 !            * ----- *
@@ -45,6 +46,7 @@ subroutine grid
     x1=-1;
     x2=2;
     h=1;
+    b1=0.5;
     
     ytop(:)=h;
     
@@ -59,7 +61,7 @@ subroutine grid
                 
             else
             
-                ybottom(n)=sin(pi*x(n,m));
+                ybottom(n)=b1*sin(pi*x(n,m));
                 
             end if
             y(n,m)=ybottom(n)+(ytop(n)-ybottom(n))*(1.*m/mc)
