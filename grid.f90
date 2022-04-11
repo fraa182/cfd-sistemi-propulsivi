@@ -2,7 +2,7 @@ subroutine grid
     use variabili
     implicit none
     integer::n,m
-    real::b1
+    real::b1, dx, dy, alpha
 
 !     Element numbering (1<=n<=nc, 1<=m<=mc)
 !            * ----- *
@@ -73,27 +73,73 @@ subroutine grid
     !********************************************************************
     ! Compute edge length and normal on right edge nx_right(n,m), ny_right(n,m), length_right(n,m)  with 0<= n <= nc, 1<= m <= mc
 
-
-
-
-
+    do n=0,nc
+    
+        do m=1,mc
+        
+            dx=abs(x(n,m-1)-x(n,m))
+            dy=abs(y(n,m-1)-y(n,m))
+            alpha=atan(dx/dy)
+            
+            nx_right(n,m)=cos(alpha)
+            ny_right(n,m)=sin(alpha)
+            
+            length_right(n,m)=sqrt(dx**2+dy**2)
+        
+        end do
+        
+    end do
 
     !********************************************************************
     ! Compute edge length and normal on upper edge nx_up(n,m), ny_up(n,m), length_up(n,m)  with 1<= n <= nc, 0<= m <= mc
 
-
-
-
-
+    do n=1,nc
+    
+        do m=0,mc
+        
+            dx=x(n,m)-x(n-1,m)
+            dy=y(n,m)-y(n-1,m)
+            
+            length_up(n,m)=sqrt(dx**2+dy**2)
+            
+			nx_up(n,m)=-dy/length_up(n,m)
+            ny_up(n,m)=dx/length_up(n,m)
+        
+        end do
+        
+    end do
 
     !********************************************************************
     ! Compute element area(n,m) and center coordinates xg(n,m), yg(n,m) with 1<= n <= nc, 1<= m <= mc
 
+    do n=1,nc
+    
+        do m=1,mc
+        
+            area(n,m)=0.5*abs(x(n-1,m-1)*y(n,m-1)-x(n,m-1)*y(n-1,m-1)+x(n,m-1)*y(n,m)-x(n,m)*y(n,m-1)+x(n,m)*y(n-1,m)&
+            -x(n-1,m)*y(n,m)+x(n-1,m)*y(n-1,m-1)-x(n-1,m-1)*y(n-1,m))
+        
+            xg(n,m)=(x(n-1,m-1)+x(n,m-1)+x(n,m)+x(n-1,m))/4
+            yg(n,m)=(y(n-1,m-1)+y(n,m-1)+y(n,m)+y(n-1,m))/4
+        
+        end do
+        
+    end do
 
-
-
-
-
+    write(*,*)'nx_up:'
+    write(*,*)' '
+    do m=1,mc
+    
+        write(*,*)nx_up(:,m)
+        
+    end do
+    write(*,*)'ny_up:'
+    write(*,*)' '
+    do m=0,mc
+    
+        write(*,*)ny_up(:,m)
+        
+    end do
 
 
 
