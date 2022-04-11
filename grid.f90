@@ -2,7 +2,7 @@ subroutine grid
     use variabili
     implicit none
     integer::n,m
-    real::b1, dx, dy, alpha
+    real::b1, dx, dy
 
 !     Element numbering (1<=n<=nc, 1<=m<=mc)
 !            * ----- *
@@ -77,14 +77,13 @@ subroutine grid
     
         do m=1,mc
         
-            dx=abs(x(n,m-1)-x(n,m))
-            dy=abs(y(n,m-1)-y(n,m))
-            alpha=atan(dx/dy)
-            
-            nx_right(n,m)=cos(alpha)
-            ny_right(n,m)=sin(alpha)
+            dx=x(n,m)-x(n,m-1)
+            dy=y(n,m)-y(n,m-1)
             
             length_right(n,m)=sqrt(dx**2+dy**2)
+            
+            nx_right(n,m)=dy/length_right(n,m)
+            ny_right(n,m)=-dx/length_right(n,m)
         
         end do
         
@@ -140,7 +139,36 @@ subroutine grid
         write(*,*)ny_up(:,m)
         
     end do
-
+    write(*,*)' '
+    write(*,*)'nx_right:'
+    write(*,*)' '
+    do m=1,mc
+    
+        write(*,*)nx_right(:,m)
+        
+    end do
+    write(*,*)'ny_right:'
+    write(*,*)' '
+    do m=0,mc
+    
+        write(*,*)ny_right(:,m)
+        
+    end do
+    write(*,*)' '
+    write(*,*)'xg:'
+	write(*,*)' '
+    do m=1,mc
+    
+		write(*,*)xg(:,m)
+		
+	end do
+	write(*,*)'yg:'
+	write(*,*)' '
+	do m=1,mc
+    
+		write(*,*)yg(:,m)
+		
+	end do
 
 
 end subroutine
