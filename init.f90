@@ -22,6 +22,8 @@ subroutine init
             T(n,m)=ttotin
             p(n,m)=ptotin
             u1(n,m)=p(n,m)/T(n,m)
+            a(n,m)=sqrt(gamma*T(n,m))
+            s(n,m)=log((T(n,m)**gamma)/(p(n,m)**(gamma-1)))
             
         end do
         
