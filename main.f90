@@ -21,9 +21,10 @@ program CFD
     call grid
 
     ! Save grid on file
-    call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)! file da aprire in visit, add - mesh - draw
+    !call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)! file da aprire in visit, add - mesh - draw
 
-    !call init
+    call init
+    call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)! file da aprire in visit, add - mesh - draw
 
     !time=0.
 
