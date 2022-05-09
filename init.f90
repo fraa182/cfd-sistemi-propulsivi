@@ -19,8 +19,8 @@ subroutine init
     
         do m=1,mc
         
-            T(n,m)=ttotin/(1+0.5*(gamma-1)*Mach**2)
-            p(n,m)=T(n,m)**(gamma/(gamma-1))
+            T(n,m)=ttotin
+            p(n,m)=ptotin
             u1(n,m)=p(n,m)/T(n,m)
             
         end do
@@ -30,7 +30,7 @@ subroutine init
     ! **********************************************************************
     ! Compute velocity magnitude (use the scalar temporary variable q, the same in all cells)
 
-    q=sqrt(R*ttotin/(1+0.5*(gamma-1)*Mach**2))
+    q=Mach*sqrt(gamma) !q=M*a=M*sqrt(gamma*T) -> T=1 perché T=T/Tref, ma T=ttotin (assegno valore iniziale) e Tref=ttotin, quindi T=1
 
     ! **********************************************************************
     ! Compute cartesian velocity components u(n,m) and v(n,m) in each cell starting from q and normal components nx_up,ny_up with 1<=n<=nc, 1<=m<=mc
