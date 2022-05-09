@@ -125,50 +125,50 @@ subroutine grid
         
     end do
 
-    write(*,*)'nx_up:'
-    write(*,*)' '
-    do m=1,mc
+!    write(*,*)'nx_up:'
+!    write(*,*)' '
+!    do m=1,mc
     
-        write(*,*)nx_up(:,m)
+!        write(*,*)nx_up(:,m)
         
-    end do
-    write(*,*)'ny_up:'
-    write(*,*)' '
-    do m=0,mc
+!    end do
+!    write(*,*)'ny_up:'
+!    write(*,*)' '
+!    do m=0,mc
     
-        write(*,*)ny_up(:,m)
+!        write(*,*)ny_up(:,m)
         
-    end do
-    write(*,*)' '
-    write(*,*)'nx_right:'
-    write(*,*)' '
-    do m=1,mc
+!    end do
+!    write(*,*)' '
+!    write(*,*)'nx_right:'
+!    write(*,*)' '
+!    do m=1,mc
     
-        write(*,*)nx_right(:,m)
+!        write(*,*)nx_right(:,m)
         
-    end do
-    write(*,*)'ny_right:'
-    write(*,*)' '
-    do m=0,mc
+!    end do
+!    write(*,*)'ny_right:'
+!    write(*,*)' '
+!    do m=0,mc
     
-        write(*,*)ny_right(:,m)
+!        write(*,*)ny_right(:,m)
         
-    end do
-    write(*,*)' '
-    write(*,*)'xg:'
-	write(*,*)' '
-    do m=1,mc
+!    end do
+!    write(*,*)' '
+!    write(*,*)'xg:'
+!	write(*,*)' '
+!    do m=1,mc
     
-		write(*,*)xg(:,m)
+!		write(*,*)xg(:,m)
 		
-	end do
-	write(*,*)'yg:'
-	write(*,*)' '
-	do m=1,mc
+!	end do
+!	write(*,*)'yg:'
+!	write(*,*)' '
+!	do m=1,mc
     
-		write(*,*)yg(:,m)
+!		write(*,*)yg(:,m)
 		
-	end do
+!	end do
 
 
 end subroutine
