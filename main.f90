@@ -1,7 +1,7 @@
 program CFD
     use variabili
     implicit none
-    !integer::k
+    integer::k
 
 
     ! ***********************************************************
@@ -21,25 +21,27 @@ program CFD
     call grid
 
     ! Save grid on file
-    !call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)! file da aprire in visit, add - mesh - draw
+    !call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)
 
     call init
-    call WDKs_tk(0,1, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)! file da aprire in visit, add - mesh - draw
+    ! Save initial condition on file
+    !call WDKs_tk(0,1, "sol", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)
 
-    !time=0.
+    time=0.
 
-    !do k=1,kend
+    do k=1,kend
 
-        !call CFL
-        !call Flux_x
-        !Call Flux_y
+        call CFL
+        call flux_right_tilde
+        Call flux_up_tilde
+        !call bordi
         !call update_cons
         !call decod
 
         !if(mod(k,kinf).eq.0) write(*,*)'k = ',k
         !if(mod(k,kout).eq.0) call WDKs_tk(k,1, "sol", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)
 
-    !end do
+    end do
 
 end program
 

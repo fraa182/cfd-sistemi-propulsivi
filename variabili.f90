@@ -1,6 +1,6 @@
 module variabili
     save
-    integer,parameter::nc=30,mc=10
+    integer,parameter::nc=10,mc=10
     real,dimension(0:nc,0:mc)::x,y,nx_up,ny_up,nx_right,ny_right,length_right,length_up
     real,dimension(0:nc,0:mc)::F1right,F2right,F3right,F4right,F1up,F2up,F3up,F4up
     real,dimension(nc,mc)::area,xg,yg
