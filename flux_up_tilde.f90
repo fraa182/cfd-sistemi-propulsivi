@@ -11,16 +11,17 @@
 
 
     do m=1,mc-1
+    
         do n=1,nc
 
             ! consider the normal of the upper interface n,m: compute the projection of the velocity vector on the normal and tangent for the element A and B
             ! Use a rotation matrix M to get (utilde,vtilde) from (u,v)
 
-			utilde_A=u(n,m)*nx_right(n,m)+v(n,m)*ny_right(n,m)
-			vtilde_A=-u(n,m)*ny_right(n,m)+v(n,m)*nx_right(n,m)
+			utilde_A=u(n,m)*nx_up(n,m)+v(n,m)*ny_up(n,m)
+			vtilde_A=-u(n,m)*ny_up(n,m)+v(n,m)*nx_up(n,m)
 			
-			utilde_B=u(n,m+1)*nx_right(n,m+1)+v(n,m+1)*ny_right(n,m+1)
-			vtilde_B=-u(n,m+1)*ny_right(n,m+1)+v(n,m+1)*nx_right(n,m+1)
+			utilde_B=u(n,m+1)*nx_up(n,m+1)+v(n,m+1)*ny_up(n,m+1)
+			vtilde_B=-u(n,m+1)*ny_up(n,m+1)+v(n,m+1)*nx_up(n,m+1)
 
             ! Compute the fluxes of the conservative variables across the interface using data from the element A (F1A,F2A,F3A,F4A) and
             ! element B (F1B,F2B,F3B,F4B)(use here the "tilde" variables in the rotated frame of reference)
@@ -56,6 +57,7 @@
             F3up(n,m)=F2up(n,m)*ny_up(n,m)+F3up(n,m)*nx_up(n,m)
 
         end do
+        
     end do
 
 end subroutine

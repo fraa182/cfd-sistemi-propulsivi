@@ -20,6 +20,7 @@ program CFD
     !call WDKs_tk(0,-3, "grid", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)
 
     call init
+    
     ! Save initial condition on file
     !call WDKs_tk(0,1, "sol", x,y,nc,mc,nc,mc,xg,yg,a,u,v,s)
 
@@ -29,7 +30,7 @@ program CFD
 
         call CFL
         call flux_right_tilde
-        Call flux_up_tilde
+        call flux_up_tilde
         !call bordi
         !call update_cons
         !call decod
