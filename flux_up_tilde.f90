@@ -28,32 +28,32 @@
             !                   F1B=u1(n,m+1)*utilde_B
             ! Go on with the other fluxes
 
-			F1A=u1(n,m)*utilde_A
-			F1B=u1(n,m+1)*utilde_B
+			F1A=u1(n,m)*utilde_A*length_up(n,m)
+			F1B=u1(n,m+1)*utilde_B*length_up(n,m+1)
 			
-			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)
-			F2B=u1(n,m+1)*utilde_B**2+u1(n,m+1)*T(n,m+1)
+			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)*length_up(n,m)
+			F2B=u1(n,m+1)*utilde_B**2+u1(n,m+1)*T(n,m+1)*length_up(n,m+1)
 			
-			F3A=u1(n,m)*utilde_A*vtilde_A
-			F3B=u1(n,m+1)*utilde_B*vtilde_B
+			F3A=u1(n,m)*utilde_A*vtilde_A*length_up(n,m)
+			F3B=u1(n,m+1)*utilde_B*vtilde_B*length_up(n,m+1)
 			
-			F4A=(u4(n,m)+u1(n,m)*T(n,m))*utilde_A
-			F4B=(u4(n,m+1)+u1(n,m+1)*T(n,m+1))*utilde_B
+			F4A=(u4(n,m)+u1(n,m)*T(n,m))*utilde_A*length_up(n,m)
+			F4B=(u4(n,m+1)+u1(n,m+1)*T(n,m+1))*utilde_B*length_up(n,m+1)
 
             ! Compute the fluxes as average between the fluxes computed from side A and side B of the interface
             ! Example for the mass: F1up(n,m)= 0.5*(F1A+F1B)
             ! Go on with the other fluxes
 
-			F1right(n,m)=0.5*(F1A+F1B)
-			F2right(n,m)=0.5*(F2A+F2B)
-			F3right(n,m)=0.5*(F3A+F3B)
-			F4right(n,m)=0.5*(F4A+F4B)
+			F1up(n,m)=0.5*(F1A+F1B)
+			F2up(n,m)=0.5*(F2A+F2B)
+			F3up(n,m)=0.5*(F3A+F3B)
+			F4up(n,m)=0.5*(F4A+F4B)
 
             ! Rotate the fluxes back from the local to the global frame of reference (only momentum fluxes need rotation!)
             ! Use the inverse of M (computed at the beginning of the subroutine)
 
-			F2right(n,m)=F2right(n,m)*nx_up(n,m)-F3right(n,m)*ny_up(n,m)
-            F3right(n,m)=F2right(n,m)*ny_up(n,m)+F3right(n,m)*nx_up(n,m)
+			F2up(n,m)=F2up(n,m)*nx_up(n,m)-F3up(n,m)*ny_up(n,m)
+            F3up(n,m)=F2up(n,m)*ny_up(n,m)+F3up(n,m)*nx_up(n,m)
 
         end do
     end do

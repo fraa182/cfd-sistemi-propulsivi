@@ -3,17 +3,13 @@ program CFD
     implicit none
     integer::k
 
-
     ! ***********************************************************
     ! INPUT SECTION
     kend=1000   ! Total number of time steps
     kout=100    ! Save solution every kout time steps
     kinf=10     ! Write on screen every kinf time steps
 
-
-
     ! ***********************************************************
-
 
     write(*,*)'nc,mc = ',nc,mc
 

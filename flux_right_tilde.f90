@@ -29,17 +29,17 @@ subroutine flux_right_tilde
             !                   F1B=u1(n+1,m)*utilde_B
             ! Go on with the other fluxes
 
-			F1A=u1(n,m)*utilde_A
-			F1B=u1(n+1,m)*utilde_B
+			F1A=u1(n,m)*utilde_A*length_right(n,m)
+			F1B=u1(n+1,m)*utilde_B*length_right(n+1,m)
 			
-			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)
-			F2B=u1(n+1,m)*utilde_B**2+u1(n+1,m)*T(n+1,m)
+			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)*length_right(n,m)
+			F2B=u1(n+1,m)*utilde_B**2+u1(n+1,m)*T(n+1,m)*length_right(n+1,m)
 			
-			F3A=u1(n,m)*utilde_A*vtilde_A
-			F3B=u1(n+1,m)*utilde_B*vtilde_B
+			F3A=u1(n,m)*utilde_A*vtilde_A*length_right(n,m)
+			F3B=u1(n+1,m)*utilde_B*vtilde_B*length_right(n+1,m)
 			
-			F4A=(u4(n,m)+u1(n,m)*T(n,m))*utilde_A
-			F4B=(u4(n+1,m)+u1(n+1,m)*T(n+1,m))*utilde_B
+			F4A=(u4(n,m)+u1(n,m)*T(n,m))*utilde_A*length_right(n,m)
+			F4B=(u4(n+1,m)+u1(n+1,m)*T(n+1,m))*utilde_B*length_right(n+1,m)
 
             ! Compute the fluxes as average between the fluxes computed from side A and side B of the interface
             ! Example for the mass: F1right(n,m)= 0.5*(F1A+F1B)
