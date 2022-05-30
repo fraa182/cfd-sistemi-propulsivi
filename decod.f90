@@ -9,12 +9,12 @@ subroutine decod
 		
 		do m=1,mc
 		
-			T(n,m)=(u4(n,m)/u1(n,m))*(gamma-1)/R
-			p(n,m)=u1(n,m)*R*T(n,m)
-			S(n,m)=log((T(n,m)**gamma)/(p(n,m)**(gamma-1)))
-			a(n,m)=sqrt(gamma*R*T(n,m))
-			u(n,m)=u2(n,m)/u1(n,m)
+		    u(n,m)=u2(n,m)/u1(n,m)
 			v(n,m)=u3(n,m)/u1(n,m)
+			T(n,m)=(u4(n,m)/u1(n,m)-0.5*(u(n,m)**2+v(n,m)**2))*(gamma-1)
+			p(n,m)=u1(n,m)*T(n,m)
+			S(n,m)=log((T(n,m))/(p(n,m)**((gamma-1)/gamma)))
+			a(n,m)=sqrt(gamma*T(n,m))
 			
 		!write(*,*) 'n  m   T	p	S	a 	u	v'
 		!write(*,*) n, m, T(n,m), p(n,m), S(n,m), a(n,m), u(n,m), v(n,m)

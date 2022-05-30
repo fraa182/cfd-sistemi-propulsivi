@@ -18,6 +18,8 @@ subroutine update_cons
 			!write(*,*)'Conservative'
 			!write(*,*) n, m, u1(n,m), u2(n,m), u3(n,m), u4(n,m)
 			!read(*,*)
+			!write(*,*)'var termodinamiche'
+			!write(*,*) n, m, a(n,m), u(n,m), v(n,m), S(n,m)
 			
 			u1(n,m)=u1(n,m)-dt/area(n,m)*((F1right(n,m)+F1up(n,m))-(F1right(n-1,m)+F1up(n,m-1)))
 			u2(n,m)=u2(n,m)-dt/area(n,m)*((F2right(n,m)+F2up(n,m))-(F2right(n-1,m)+F2up(n,m-1)))

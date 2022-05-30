@@ -15,7 +15,7 @@ subroutine CFL
         do n=1,nc
             ! In each cell compute the max propagation speed
 			
-			lambda_max=u(n,m)+a(n,m)
+			lambda_max=sqrt(u(n,m)**2+v(n,m)**2)+a(n,m)
 			
             ! In each cell compute the max allowable time step
             
