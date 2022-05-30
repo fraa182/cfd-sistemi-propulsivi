@@ -44,10 +44,10 @@ subroutine grid
     ! Define geometry (x1,x2,h,b(:), c(:)
     ! Compute node coordinates x(n,m), y(n,m)  with 0<= n <= nc, 0<= m <= mc -> matrici
 
-    x1=-1;
-    x2=2;
-    h=1;
-    b1=0.5;
+    x1=-1
+    x2=2
+    h=1
+    b1=0!0.5
     
     ytop(:)=h;
     

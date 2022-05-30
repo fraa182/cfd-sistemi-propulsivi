@@ -10,7 +10,7 @@ subroutine init
 
     ptotin=1
     ttotin=1
-    Mach=0.6
+    Mach=0
 
     ! **********************************************************************
     ! Compute temperature, pressure, density in each cell: T(n,m),p(n,m),u1(n,m) with 1<=n<=nc, 1<=m<=mc
@@ -23,7 +23,7 @@ subroutine init
             p(n,m)=ptotin
             u1(n,m)=p(n,m)/T(n,m)
             a(n,m)=sqrt(gamma*T(n,m))
-            s(n,m)=log((T(n,m)**gamma)/(p(n,m)**(gamma-1)))
+            S(n,m)=log((T(n,m)**gamma)/(p(n,m)**(gamma-1)))
             
         end do
         
