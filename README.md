@@ -8,3 +8,8 @@ Repository del progetto di gruppo
 **Come è organizzata la repository**
 - Nella cartella "images" ci vanno le immagini che generiamo con VisIt e che vanno eventualmente nella relazione (disegni e schemi che non c'entrano proprio coi grafici che vuole Larocca basta che li mettiamo nell'overleaf)
 - Nella cartella main invece ci vanno semplicemente i vari codici sorgente di subroutine, moduli, funzioni e main.
+
+# Come compilare
+- Scaricare la cartella e aprirla nel terminale
+- Scrivere "gfortran *.f90 *.FOR" e premere invio, poi scrivere "a.exe" se su Windows, oppure "./a.out" se su UNIX (Mac o Linux)
+- La prima volta darà errore su "variabili.mod", ricompilare una seconda volta e va
