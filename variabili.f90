@@ -6,6 +6,7 @@ module variabili
     real,dimension(nc,mc)::area,xg,yg
     real,dimension(nc,mc)::u1,u2,u3,u4,p,T,u,v,a,S
 	real,dimension(nc)::ami
+	real,dimension(mc)::pexit=1
 
     integer::kend,kinf,kout
 
@@ -13,6 +14,7 @@ module variabili
     real,parameter::pi=DACOS(-1.D0)
     real,parameter::gamma=1.4
     real,parameter::R=287
+    !real,parameter::pexit=1
 
     ! Geometry
     real::x1,x2,x3,x4,h

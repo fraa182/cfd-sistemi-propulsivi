@@ -13,7 +13,7 @@
 
     do m=1,mc-1
     
-        do n=1,nc
+        do n=1,nc-1
 
             ! consider the normal of the upper interface n,m: compute the projection of the velocity vector on the normal and tangent for the element A and B
             ! Use a rotation matrix M to get (utilde,vtilde) from (u,v)
@@ -33,8 +33,8 @@
 			F1A=u1(n,m)*utilde_A*length_up(n,m)
 			F1B=u1(n,m+1)*utilde_B*length_up(n,m+1)
 			
-			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)*length_up(n,m)
-			F2B=u1(n,m+1)*utilde_B**2+u1(n,m+1)*T(n,m+1)*length_up(n,m+1)
+			F2A=(u1(n,m)*utilde_A**2+u1(n,m)*T(n,m))*length_up(n,m)
+			F2B=(u1(n,m+1)*utilde_B**2+u1(n,m+1)*T(n,m+1))*length_up(n,m+1)
 			
 			F3A=u1(n,m)*utilde_A*vtilde_A*length_up(n,m)
 			F3B=u1(n,m+1)*utilde_B*vtilde_B*length_up(n,m+1)

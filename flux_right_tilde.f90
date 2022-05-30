@@ -10,7 +10,7 @@ subroutine flux_right_tilde
     ! Perform a double loop for all fluid interfaces (right side of the element) inside the domain:
     ! 1<=n<=nc-1, 1<=m<=mc (BC will be computed in another subroutine)
 
-    do m=1,mc
+    do m=1,mc-1
     
         do n=1,nc-1
 
@@ -33,8 +33,8 @@ subroutine flux_right_tilde
 			F1A=u1(n,m)*utilde_A*length_right(n,m)
 			F1B=u1(n+1,m)*utilde_B*length_right(n+1,m)
 			
-			F2A=u1(n,m)*utilde_A**2+u1(n,m)*T(n,m)*length_right(n,m)
-			F2B=u1(n+1,m)*utilde_B**2+u1(n+1,m)*T(n+1,m)*length_right(n+1,m)
+			F2A=(u1(n,m)*utilde_A**2+u1(n,m)*T(n,m))*length_right(n,m)
+			F2B=(u1(n+1,m)*utilde_B**2+u1(n+1,m)*T(n+1,m))*length_right(n+1,m)
 			
 			F3A=u1(n,m)*utilde_A*vtilde_A*length_right(n,m)
 			F3B=u1(n+1,m)*utilde_B*vtilde_B*length_right(n+1,m)
