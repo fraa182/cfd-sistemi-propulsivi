@@ -34,7 +34,7 @@ program CFD
         call CFL
 		call flux_right_tilde
 		call flux_up_tilde
-		call bordi_s1(x,y,nx_right,ny_right,nx_up,ny_up,a,u,v,s,F1right,F2right,F3right,F4right,F1up,F2up,&
+		call bordi_s1(x,y,nx_right,ny_right,nx_up,ny_up,a,u,v,S,F1right,F2right,F3right,F4right,F1up,F2up,&
 	                    F3up,F4up,nc,mc,nc,mc,ami,pexit)
         call update_cons
         
