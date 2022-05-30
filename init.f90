@@ -11,6 +11,7 @@ subroutine init
     ptotin=1
     ttotin=1
     Mach=0
+	ami=Mach
 
     ! **********************************************************************
     ! Compute temperature, pressure, density in each cell: T(n,m),p(n,m),u1(n,m) with 1<=n<=nc, 1<=m<=mc

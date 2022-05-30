@@ -5,6 +5,7 @@ module variabili
     real,dimension(0:nc,0:mc)::F1right,F2right,F3right,F4right,F1up,F2up,F3up,F4up
     real,dimension(nc,mc)::area,xg,yg
     real,dimension(nc,mc)::u1,u2,u3,u4,p,T,u,v,a,S
+	real,dimension(nc)::ami
 
     integer::kend,kinf,kout
 
