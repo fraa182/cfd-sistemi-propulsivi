@@ -16,6 +16,10 @@ subroutine decod
 			u(n,m)=u2(n,m)/u1(n,m)
 			v(n,m)=u3(n,m)/u1(n,m)
 			
+		!write(*,*) 'T	p	S	a 	u	v'
+		!write(*,*) T(n,m), p(n,m), S(n,m), a(n,m), u(n,m), v(n,m)
+		!read(*,*)
+			
 		end do
 		
 	end do
