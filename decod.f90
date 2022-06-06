@@ -16,10 +16,6 @@ subroutine decod
 			S(n,m)=log((T(n,m))/(p(n,m)**((gamma-1)/gamma)))
 			a(n,m)=sqrt(gamma*T(n,m))
 			
-		!write(*,*) 'n  m   T	p	S	a 	u	v'
-		!write(*,*) n, m, T(n,m), p(n,m), S(n,m), a(n,m), u(n,m), v(n,m)
-		!read(*,*)
-			
 		end do
 		
 	end do

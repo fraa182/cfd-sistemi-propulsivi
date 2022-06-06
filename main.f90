@@ -35,19 +35,6 @@ program CFD
 		call flux_right_tilde
 		call flux_up_tilde
 		
-		!do n=1,nc
-        !do m=1,mc
-        !write(*,*)'right'
-        !write(*,*) n, m, F1right(n-1,m), F2right(n-1,m), F3right(n-1,m), F4right(n-1,m)
-        !write(*,*)'up'
-        !write(*,*) n, m, F1up(n,m-1), F2up(n,m-1), F3up(n,m-1), F4up(n,m-1)
-        !write(*,*) n, m, u1(n,m), u2(n,m), u3(n,m), u4(n,m)
-        !write(*,*)'var termodinamiche'
-        !write(*,*) n, m, T(n,m), p(n,m), S(n,m)
-        !read(*,*)
-        !end do
-        !end do
-		
 		call bordi_s1(x,y,nx_right,ny_right,nx_up,ny_up,a,u,v,S,F1right,F2right,F3right,F4right,F1up,F2up,&
 	                    F3up,F4up,nc,mc,nc,mc,ami,pexit)
         call update_cons
