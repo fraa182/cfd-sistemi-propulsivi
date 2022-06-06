@@ -13,7 +13,7 @@
 
     do m=1,mc-1
     
-        do n=1,nc-1
+        do n=1,nc
 
             ! consider the normal of the upper interface n,m: compute the projection of the velocity vector on the normal and tangent for the element A and B
             ! Use a rotation matrix M to get (utilde,vtilde) from (u,v)

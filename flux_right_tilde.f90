@@ -10,7 +10,7 @@ subroutine flux_right_tilde
     ! Perform a double loop for all fluid interfaces (right side of the element) inside the domain:
     ! 1<=n<=nc-1, 1<=m<=mc (BC will be computed in another subroutine)
 
-    do m=1,mc-1
+    do m=1,mc
     
         do n=1,nc-1
 

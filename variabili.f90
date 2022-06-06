@@ -6,7 +6,7 @@ module variabili
     real,dimension(nc,mc)::area,xg,yg
     real,dimension(nc,mc)::u1,u2,u3,u4,p,T,u,v,a,S
 	real,dimension(nc)::ami
-	real,dimension(mc)::pexit=1
+	real,dimension(mc)::pexit=0.7
 
     integer::kend,kinf,kout
 
